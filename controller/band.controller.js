@@ -4,7 +4,6 @@ const Band = require('../Schema/bandschema.js')
 //create new bandname
 
 exports.create = (req, res) =>{
-  console.log(req.body)
   if (!req.body){
     return res.status(400).send({
       message: "Band Information Cannot Be Empty"
