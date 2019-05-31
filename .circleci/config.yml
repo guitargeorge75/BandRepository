@@ -25,9 +25,9 @@ jobs:
           name: Start Docker Image
           command: docker-compose up
           background: true
-      - run:
-          name: Wait for Service
-          command: npm run wait-on
+      #- run:
+      #    name: Wait for Service
+      #    command: npm run wait-on
       - run:
           name: Run Cypress Tests
           command: npm run test
