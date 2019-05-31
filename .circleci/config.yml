@@ -27,7 +27,7 @@ jobs:
           background: true
       - run:
           name: Wait for Service
-          command: wait-on http://localhost:3000 -timeout 1m
+          command: ./node_modules/.bin/wait-on http://localhost:3000 -timeout 1m
       - run:
           name: Run Cypress Tests
           command: npm run test
