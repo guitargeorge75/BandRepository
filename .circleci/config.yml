@@ -13,7 +13,7 @@ jobs:
       - save_cache:
           key: cache-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
-            - ~/.npm
+           ## - ~/.npm
             - ~/.cache
       - run:
           name: install NPM Packages
