@@ -18,6 +18,11 @@ jobs:
             - ./node_modules
       - setup_remote_docker:   
           docker_layer_caching: true 
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - app
+            - .cache/Cypress
       - run:
           name: Spin up Docker Image
           command: docker-compose build
@@ -25,14 +30,12 @@ jobs:
           name: Start Docker Image
           command: docker-compose up
           background: true
-       - persist_to_workspace:
-          root: ~/
-          paths:
-            - app
-            - .cache/Cypress
+       
       #- run:
       #    name: Wait for Service
       #    command: npm run wait-on
+      - attach_workspace:
+          at: ~/
       - run:
           name: Run Cypress Tests
           command: npm run test
