@@ -1,0 +1,39 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - restore_cache: # special step to restore the dependency cache
+          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install NPM Packages
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - setup_remote_docker:   
+          docker_layer_caching: true 
+      - run:
+          name: Spin up Docker Image
+          command: docker-compose build
+      - run:
+          name: Start Docker Image
+          command: docker-compose up
+          background: true
+      - run:
+          name: Wait for Service
+          command: - wait-on http://localhost:3000 -timeout 1m
+      - run:
+          name: Run Cypress Tests
+          command: npm run test
+      - run:
+          name: Kill Server
+          command: docker-compose down --volumes
+      - store_artifacts:
+          path: .\cypress\videos
+          prefix: videos
