@@ -31,7 +31,6 @@ jobs:
     test:
       docker:
         - image: cypress/base:8
-      requires: build
       steps:
         - checkout   
         - restore_cache: # special step to restore the dependency cache
@@ -61,7 +60,9 @@ jobs:
             prefix: videos
 workflows:
   version: 2
-  build-test:
+  build-and-test:
     jobs:
       - build
-      - test    
+      - test:
+          requires:
+            - build    
