@@ -21,8 +21,7 @@ jobs:
       - persist_to_workspace:
           root: ~/
           paths:
-            - app
-            - .cache/Cypress
+             - .cache/Cypress
       - run:
           name: Spin up Docker Image
           command: docker-compose build
