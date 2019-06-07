@@ -13,3 +13,7 @@ services:
     image: mongo
     ports:
       - "27017:27017"
+  cypress:
+    build: ./cypress
+    links:
+      - app
