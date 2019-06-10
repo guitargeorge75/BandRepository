@@ -1,4 +1,4 @@
 module.exports = {
   url : 'mongodb://mongo:27017/nodeJsTest',
-  serverport : 3000
+  serverport : 4000
 }

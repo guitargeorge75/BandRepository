@@ -1,0 +1,14 @@
+{
+  "name": "tests",
+  "version": "1.0.0",
+  "description": "tests for BandRepository",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/cypress run"
+  },
+  "author": "Subhayu Mukherjee",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^3.3.1"
+  }
+}
