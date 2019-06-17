@@ -3,7 +3,7 @@ describe('test the band post endpoint', function(){
         cy.server()
         let a = {
             method: "POST",
-            url: 'http://localhost:3000/bands',
+            url: 'http://app:3000/bands',
             body: {
                 "bandname": "Glass Onion",
                 "members": [
