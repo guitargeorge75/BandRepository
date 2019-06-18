@@ -27,6 +27,7 @@ jobs:
         - run:
             name: Start Docker Image
             command: docker-compose up
+            background: true
         - store_artifacts:
-            path: .\cypress\videos
+            path: .\tests\cypress\videos
             
