@@ -27,15 +27,6 @@ jobs:
         - run:
             name: Start Docker Image
             command: docker-compose up
-            background: true
-        - attach_workspace:
-            at: ~/
-        - run:
-            name: Run Cypress Tests
-            command: npm run test
-        - run:
-            name: Kill Server
-            command: docker-compose down --volumes
         - store_artifacts:
             path: .\cypress\videos
             
