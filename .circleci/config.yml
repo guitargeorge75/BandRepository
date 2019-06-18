@@ -27,7 +27,6 @@ jobs:
         - run:
             name: Start Docker Image
             command: docker-compose up --exit-code-from cypress
-            background: true
         - store_artifacts:
             path: .\tests\cypress\videos
             
