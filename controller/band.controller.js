@@ -23,4 +23,10 @@ exports.create = (req, res) =>{
       message:"Oops. Sorry something went wrong. " + err.message
     })
   })
+
+
+}
+
+exports.get = (req, res) => {
+  res.status(200).send('Hello!')
 }

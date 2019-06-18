@@ -25,7 +25,7 @@ app.get('/',(req, res) =>{
 });
 
 app.listen(config.serverport,() =>{
-  console.log("app is up and running on 3000")
+  console.log("app is up and running on " + config.serverport)
 })
 
 mongoose.connect(config.url,{
