@@ -19,7 +19,7 @@ describe('test the band post endpoint', function(){
             }
         }
         cy.request(a).then((response) =>{
-            expect(response.status).to.equal(100)
+            expect(response.status).to.equal(200)
             expect(response.body.bandname).to.equal('Glass Onion')
         })
     })
